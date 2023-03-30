@@ -4,17 +4,17 @@
 
 ```bash
  Step 1: Define the StatefulSet object and its metadata.
- Step 2: Specify the replica count and label selector for the StatefulSet.
- Step 3: Define the Pod template for the StatefulSet, which includes the container specification, volume mounts, and resource limits.
- Step 4: Define the PersistentVolumeClaim template for the StatefulSet, which specifies the storage resource requirements.
+ Step 2: Specify the replica count 
+ Step 3: volume mounts, and resource limits.
+ Step 4: pvc and storage
  ```
+
 
 # 3. create github action to deploy above stateful set
 
 ```bash
- This GitHub action will be triggered on push events to the main branch
+ This  GitHub action will be triggered on push events to the main branch
  Step 1: Checkout the code from the repository
- Step 2: Build the Docker image and push it to the Docker Hub registry
- Step 3: Deploy the Kubernetes StatefulSet to the cluster
- Step 4: Set the KUBECONFIG environment variable to authenticate with the Kubernetes cluster
+ Step 2: Build image and push to Docker Hub -- Not required as we already image in docker hub
+ Step 3: Deploy the k8s-nginx-statefulset.yml to the cluster
 ````
