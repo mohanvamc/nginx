@@ -11,16 +11,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      - name: Build and Push Image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: itsvamc02/alpine-nginx:latest
       - name: Deploy to Kubernetes
         uses: appleboy/kubectl-action@v1.2.1
         with:
           config: ${{ secrets.KUBECONFIG }}
           args: |
             config set-context --current --namespace=my-namespace
-            apply -f kubernetes/k8s-nginx-statefulset.yaml
+            apply -f kubernetes/k8s-nginx-statefulset.yml
